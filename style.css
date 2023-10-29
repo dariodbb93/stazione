@@ -1,0 +1,127 @@
+.contentHeight {
+
+    min-height: 75vh;
+}
+
+
+.footerHeight {
+
+    min-height: 17vh;
+
+
+}
+
+
+.footerHeight2 {
+
+    min-height: 25vh;
+
+
+}
+
+
+.navBackground {
+
+    background-color: #333;
+
+}
+
+
+
+.carattere {
+    font-family: monospace;
+}
+
+
+.bordo {
+
+    border: 1px solid black;
+    border-radius: 5%;
+}
+
+.texture {
+    background-image: url('pc.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.83;
+
+
+}
+
+.bordo {
+    border: solid 1px black;
+}
+
+
+
+.headerBackground {
+    background-color: #333;
+    opacity: 0.8;
+}
+
+.footerBackground {
+    background-color: #065c5cc2;
+    opacity: 0.7;
+}
+
+
+.img {
+    height: 100%;
+    width: 100%;
+
+}
+
+.carta {
+
+    height: 21rem;
+
+
+}
+
+iframe {
+    display: block;
+}
+
+
+.headerHeight {
+
+
+    min-height: 32vh;
+
+
+
+}
+
+
+.elimina-articolo-btn {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+
+.contentHeightDado {
+
+
+    min-height: 45vh;
+
+}
+
+.result-container {
+    white-space:pre; /* Andare a capo sui caratteri di spazio */
+    max-width: 100vw; /* Limita la larghezza massima */
+    overflow: auto; /* Aggiungi uno scroll verticale se necessario */
+    border: 1px solid #000; /* Aggiungi un bordo per distinguere il contenuto */
+    padding: 10px; /* Aggiungi spaziatura interna per una migliore leggibilità */
+    box-sizing: border-box; /* Assicura che padding e bordi non aumentino la larghezza */
+}
+
+.texture2 {
+    background-image: url('dadi.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.83;
+
+
+}
