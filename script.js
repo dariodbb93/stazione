@@ -1,34 +1,27 @@
 let wrapper = document.querySelector('#wrapper');
+
 fetch('meteo.php')
-    .then(response => {
-        response.json()
-            .then(previsioni => {
-
-                view(previsioni);
-
-            })
-
+    .then(response => response.json())
+    .then(previsioni => {
+        view(previsioni);
     })
-
-function view(previsioni) {
-
-    previsioniReversed = previsioni.reverse();
-
-    previsioniReversed.forEach(previsione => {
-
-        let row = document.createElement('div');
-
-        row.innerHTML = `
-<div class="row align-items-center">
-<div class="col">${previsione[2]}</div>
-<div class="col">${previsione[1]}</div>
-<div class="col">${previsione[0]}</div>
-</div>
-
-`
-        wrapper.appendChild(row);
-
+    .catch(error => {
+        console.error('Errore nel recupero dei dati:', error);
     });
 
+function view(previsioni) {
+    // Inverto l'array delle previsioni
+    const previsioniReversed = previsioni.reverse();
 
+    // Itero sulle previsioni e creo le righe della tabella
+    previsioniReversed.forEach(previsione => {
+        let row = document.createElement('div');
+        row.classList.add('row', 'align-items-center');
+        row.innerHTML = `
+            <div class="col">${previsione[0]}</div>
+            <div class="col">${previsione[1]}</div>
+            <div class="col">${previsione[2]}</div>
+        `;
+        wrapper.appendChild(row);
+    });
 }
