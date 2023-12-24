@@ -16,9 +16,9 @@ $data = array();
 while ($row = pg_fetch_assoc($result)) {
     // Aggiungi i dati raggruppati all'array
     array_push($data, [
-        'tramonto' => $row['tramonto'],
-        'temperatura_media' => $row['temperatura_media'],
-        'umidita_media' => $row['umidita_media'],
+        $row['tramonto'],
+        $row['temperatura_media'],
+        $row['umidita_media'],
     ]);
 }
 
@@ -27,4 +27,3 @@ $dataJson = json_encode($data);
 pg_close($connection);
 
 echo ($dataJson);
-?>
