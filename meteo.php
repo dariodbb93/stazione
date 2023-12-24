@@ -8,10 +8,17 @@ $password = 'HotDingo627';
 $connection = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
 $query = "SELECT * FROM previsioni";
 $result = pg_query($connection, $query);
+$data = array();
+
 while($row = pg_fetch_assoc($result)){
-    echo $row['temperatura'] . $row['umidita'] . $row['tramonto']. "<br>";
+
+array_push($data, [$row['temperatura'], $row['umidita'], $row['tramonto']]);
+
 
 };
 
+$dataJson = json_encode($data);
 
 pg_close($connection);
+
+echo ($dataJson);
