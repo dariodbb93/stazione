@@ -6,19 +6,25 @@ $dbname = 'meteo';
 $user = 'dario';
 $password = 'HotDingo627';
 $connection = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
-$query = "SELECT * FROM previsioni GROUP BY tramonto";
+
+// Modifica della query per raggruppare per tramonto
+$query = "SELECT tramonto, AVG(temperatura) AS temperatura_media, AVG(umidita) AS umidita_media FROM previsioni GROUP BY tramonto";
 $result = pg_query($connection, $query);
+
 $data = array();
 
-while($row = pg_fetch_assoc($result)){
-
-array_push($data, [$row['temperatura'], $row['umidita'], $row['tramonto']]);
-
-
-};
+while ($row = pg_fetch_assoc($result)) {
+    // Aggiungi i dati raggruppati all'array
+    array_push($data, [
+        'tramonto' => $row['tramonto'],
+        'temperatura_media' => $row['temperatura_media'],
+        'umidita_media' => $row['umidita_media'],
+    ]);
+}
 
 $dataJson = json_encode($data);
 
 pg_close($connection);
 
 echo ($dataJson);
+?>
